@@ -75,3 +75,151 @@ const student1 = new Student(
 student1.passedCourse('POO JS');
 console.log(student1);
 
+
+/* Ventajas de la programación orientada a objetos */
+/* Objeto literal */
+const studentPlatzi1 = {
+    name: 'Dorelly',
+    firstname: 'Crisanto SIlupú',
+    userName: 'dcrisanto',
+    points: 100,
+    socialNetworks: {
+        twitter: '',
+        facebook: 'dorecharo15',
+        instagram: 'dorecharo15'
+    },
+    approvedCourses: [
+        "Computación básica",
+        "Pensamiento lógico",
+        "Preword Linux",
+        "Terminal",
+        "Programación Básica",
+        "Css grid",
+        "Diseño para Programadores",
+        "Front Developer",
+        "Básico de JS",
+        "Front Developer Práctico",
+        "Git-GitHub",
+        "Html-Css",
+        "Html Práctico",
+        "Práctico Css",
+        "Introducción Web",
+        "JS closures-scope",
+        "JS Práctico",
+        "Mobile First",
+        "POO",
+    ],
+    learningPaths: [
+        {
+            name: "Escuela de Desarrollo Web",
+            courses: [
+                "Computación básica",
+                "Pensamiento lógico",
+                "Preword Linux",
+                "Terminal",
+                "Programación Básica",
+                "Css grid",
+                "Diseño para Programadores",
+                "Front Developer",
+                "Básico de JS",
+                "Front Developer Práctico",
+                "Git-GitHub",
+                "Html-Css",
+                "Html Práctico",
+                "Práctico Css",
+                "Introducción Web",
+                "JS closures-scope",
+                "JS Práctico",
+                "Mobile First",
+                "POO",
+                "Curso Básico de POO JS",
+                "Curso Intermedio de POO JS",
+                "ECMAScript 6"
+            ]
+        },
+        {
+            name: "Escuela de JavaScript",
+            courses: [
+                "Preword Linux",
+                "Front Developer",
+                "Front Developer Práctico",
+                "Básico de JS",
+                "JS Práctico",
+                "ECMAScript 6"
+            ]
+        }
+    ]
+};
+
+const studentPlatzi2 = {
+    name: 'Roxana',
+    firstname: 'Crisanto Silupú',
+    userName: 'rcrisanto',
+    points: 100,
+    socialNetworks: {
+        twitter: 'roxipaola',
+        facebook: 'roxipaola',
+        instagram: 'roxipaola'
+    },
+    approvedCourses: [
+        "Computación básica",
+        "Pensamiento lógico",
+        "Preword Linux",
+        "Terminal",
+        "Programación Básica",
+        "Css grid",
+        "Diseño para Programadores",
+        "Front Developer",
+        "Básico de JS",
+        "Front Developer Práctico",
+        "Git-GitHub",
+        "Html-Css",
+        "Html Práctico",
+        "Práctico Css",
+        "Introducción Web",
+        "JS closures-scope",
+        "JS Práctico",
+        "Mobile First",
+        "POO",
+    ],
+    learningPaths: [
+        {
+            name: "Escuela de Desarrollo Web",
+            courses: [
+                "Computación básica",
+                "Pensamiento lógico",
+                "Preword Linux",
+                "Terminal",
+                "Programación Básica",
+                "Css grid",
+                "Diseño para Programadores",
+                "Front Developer",
+                "Básico de JS",
+                "Front Developer Práctico",
+                "Git-GitHub",
+                "Html-Css",
+                "Html Práctico",
+                "Práctico Css",
+                "Introducción Web",
+                "JS closures-scope",
+                "JS Práctico",
+                "Mobile First",
+                "POO",
+                "Curso Básico de POO JS",
+                "Curso Intermedio de POO JS",
+                "ECMAScript 6"
+            ]
+        },
+        {
+            name: "Escuela de JavaScript",
+            courses: [
+                "Preword Linux",
+                "Front Developer",
+                "Front Developer Práctico",
+                "Básico de JS",
+                "JS Práctico",
+                "ECMAScript 6"
+            ]
+        }
+    ]
+}
