@@ -295,6 +295,27 @@ const studentPlatzi2 = {
 console.log(studentPlatzi1);
 
 /*Ventajas POO */
+
+/*Polimorfismo */
+class Comment {
+    constructor({
+        content,
+        studentName,
+        studentRole = 'Estudiante'
+    }){
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole
+        this.likes = 0; //Sin necesidad de recibir parámetros en el constructor se pueden crear atributos.
+    }
+
+    post() {
+        console.log(`${this.studentName}(${this.studentRole}):
+        ${this.likes} 
+        comentario: ${this.content}`)
+    }
+}
+
 class Lessons {
     constructor(name){
         this.name = name;
@@ -412,6 +433,17 @@ class StudentPlatzi {
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths
     }
+
+    postComment(commentContent) {
+        /* Creando una instancia del prototipo Comment */
+        const comment = new Comment({
+            studentName: this.name,
+            content: commentContent
+        })
+        
+        /*llamando al método post del prototipo Comment */
+        comment.post();
+    }
 }
 
 /*Herencia*/
@@ -455,8 +487,28 @@ class ExpertStudentPlatzi extends StudentPlatzi {
     }
 }
 
+class TeacherStudentPlatzi extends StudentPlatzi {
+    constructor(props){
+        super(props);
+    }
+
+    passedCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+
+    postComment(commentContent){
+        const comment = new Comment({
+            studentName: this.name,
+            studentRole: 'Teacher',
+            comment: commentContent
+        });
+
+        comment.post();
+    }
+}
+
 /*creando las instancias */
-const studentPlatzi_1 = new StudentPlatzi({
+const studentPlatzi_1 = new BasicStudentPlatzi({
     name: 'Dorelly del Rosario',
     user: 'dcrisanto',
     email: 'dorelly.crisanto@gmail.com',
@@ -485,6 +537,21 @@ const studentPlatzi_2 = new FreeStudentPlatzi({
         javaScriptSchool
     ]
 });
+
+const teacherStudentPlatzi_1 = new TeacherStudentPlatzi({
+    name: 'Cecilia Magaly',
+    user: 'ceci',
+    email: 'cecilia@gmail.com',
+    facebook: 'ceci',
+    approvedCourses: [
+        basicComputing
+    ],
+    learningPaths: [
+        javaScriptSchool
+    ]
+});
+
+
 
 studentPlatzi_2.passedCourse(prewordLinux);
 
