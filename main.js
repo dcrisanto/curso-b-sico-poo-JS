@@ -442,4 +442,3 @@ console.log(studentPlatzi_1);
 console.log(studentPlatzi_2);
 
 
-

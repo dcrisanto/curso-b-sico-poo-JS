@@ -7,5 +7,13 @@
 </head>
 <body>
     <script src="main.js"></script>
+    <script src="main-module.mjs" type="module"></script>
+    <script src="module.mjs" type="module"></script>
+    <!--Vamos a tener error: No podemos utilizar los módulos de JS al menos que tengamos un servidor que nos permita hacer una configuración CROSS-->
+    <!--Al colocar el archivo tipo módulo main.mjs no se ejecutará lo que contiene
+    <script src="module.mjs" type="module"></script>-
+    <script type="module">
+        import { PlatziClass } from './module.mjs';
+    </script>-->
 </body>
 </html>
