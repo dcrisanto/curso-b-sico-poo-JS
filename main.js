@@ -294,7 +294,49 @@ const studentPlatzi2 = {
 
 console.log(studentPlatzi1);
 
-/*POO */
+/*Ventajas POO */
+class Lessons {
+    constructor(name){
+        this.name = name;
+    }
+}
+
+const linux = new Lessons('Qué es Linux y por qué instalarlo');
+const ubuntu = new Lessons('Instalando Ubuntu en VirtualBox');
+
+class Courses {
+    constructor({
+        name, 
+        lessons = []
+    }){
+        this.name = name;
+        this.lessons = lessons
+    }
+    newLessons(newClass) {
+        this.lessons.push(newClass);
+    }
+}
+
+const basicComputing = new Courses({
+    name: 'Computación básica',
+});
+
+const prewordLinux = new Courses({
+    name: 'Preword Linux',
+    lessons: [
+        linux,
+        ubuntu
+    ]
+});
+
+const terminal = new Courses({
+    name: 'Terminal',
+});
+
+const basicProgramming = new Courses({
+    name: 'Programación Básica',
+});
+
 class LearningPaths {
     constructor({
         name,
@@ -311,40 +353,18 @@ class LearningPaths {
 const webDevelopmentSchool = new LearningPaths({
     name: 'Escuela de Desarrollo Web',
     courses: [
-        "Computación básica",
-        "Pensamiento lógico",
-        "Preword Linux",
-        "Terminal",
-        "Programación Básica",
-        "Css grid",
-        "Diseño para Programadores",
-        "Front Developer",
-        "Básico de JS",
-        "Front Developer Práctico",
-        "Git-GitHub",
-        "Html-Css",
-        "Html Práctico",
-        "Práctico Css",
-        "Introducción Web",
-        "JS closures-scope",
-        "JS Práctico",
-        "Mobile First",
-        "POO",
-        "Curso Básico de POO JS",
-        "Curso Intermedio de POO JS",
-        "ECMAScript 6"
+        basicComputing,
+        prewordLinux,
+        terminal,
+        basicProgramming
     ]
 });
 
 const javaScriptSchool = new LearningPaths({
     name: 'Escuela de JavaScript',
     courses: [
-        "Preword Linux",
-        "Front Developer",
-        "Front Developer Práctico",
-        "Básico de JS",
-        "JS Práctico",
-        "ECMAScript 6"
+        prewordLinux,
+        basicProgramming
     ]
 });
 
@@ -372,10 +392,6 @@ class StudentPlatzi {
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths
     }
-
-    passedCourse(newCourse) {
-        this.approvedCourses.push(newCourse);
-    }
 }
 
 /*creando las instancias */
@@ -385,25 +401,10 @@ const studentPlatzi_1 = new StudentPlatzi({
     email: 'dorelly.crisanto@gmail.com',
     facebook: 'dorecharo15@hotmail.com',
     approvedCourses: [
-        "Computación básica",
-        "Pensamiento lógico",
-        "Preword Linux",
-        "Terminal",
-        "Programación Básica",
-        "Css grid",
-        "Diseño para Programadores",
-        "Front Developer",
-        "Básico de JS",
-        "Front Developer Práctico",
-        "Git-GitHub",
-        "Html-Css",
-        "Html Práctico",
-        "Práctico Css",
-        "Introducción Web",
-        "JS closures-scope",
-        "JS Práctico",
-        "Mobile First",
-        "POO",
+        basicComputing,
+        prewordLinux,
+        terminal,
+        basicProgramming,
     ],
     learningPaths: [
         webDevelopmentSchool,
@@ -416,13 +417,14 @@ const studentPlatzi_2 = new StudentPlatzi({
     user: 'roxi',
     email: 'roxipaolacs@gmail.com',
     facebook: 'roxi',
+    approvedCourses: [
+        prewordLinux,
+        basicComputing
+    ],
     learningPaths: [
         javaScriptSchool
     ]
 });
-
-studentPlatzi_1.passedCourse('POO JS');
-studentPlatzi_2.passedCourse('POO JS');
 
 console.log(studentPlatzi_1);
 console.log(studentPlatzi_2);
