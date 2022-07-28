@@ -292,5 +292,140 @@ const studentPlatzi2 = {
     ]
 }
 
+console.log(studentPlatzi1);
+
+/*POO */
+class LearningPaths {
+    constructor({
+        name,
+        courses = []
+    }){
+        this.name = name;
+        this.courses = courses
+    }
+    passedCourse(newCourses){
+        this.courses.push(newCourses);
+    }
+}
+
+const webDevelopmentSchool = new LearningPaths({
+    name: 'Escuela de Desarrollo Web',
+    courses: [
+        "Computación básica",
+        "Pensamiento lógico",
+        "Preword Linux",
+        "Terminal",
+        "Programación Básica",
+        "Css grid",
+        "Diseño para Programadores",
+        "Front Developer",
+        "Básico de JS",
+        "Front Developer Práctico",
+        "Git-GitHub",
+        "Html-Css",
+        "Html Práctico",
+        "Práctico Css",
+        "Introducción Web",
+        "JS closures-scope",
+        "JS Práctico",
+        "Mobile First",
+        "POO",
+        "Curso Básico de POO JS",
+        "Curso Intermedio de POO JS",
+        "ECMAScript 6"
+    ]
+});
+
+const javaScriptSchool = new LearningPaths({
+    name: 'Escuela de JavaScript',
+    courses: [
+        "Preword Linux",
+        "Front Developer",
+        "Front Developer Práctico",
+        "Básico de JS",
+        "JS Práctico",
+        "ECMAScript 6"
+    ]
+});
+
+console.log(webDevelopmentSchool);
+
+class StudentPlatzi {
+    constructor({
+        name,
+        user,
+        email,
+        facebook = '',
+        twitter = undefined,
+        instagram = '',
+        approvedCourses = [],
+        learningPaths = []
+    }) {
+        this.name = name;
+        this.user = user;
+        this.email = email;
+        this.socialNetworks = {
+            facebook,
+            twitter,
+            instagram
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPaths = learningPaths
+    }
+
+    passedCourse(newCourse) {
+        this.approvedCourses.push(newCourse);
+    }
+}
+
+/*creando las instancias */
+const studentPlatzi_1 = new StudentPlatzi({
+    name: 'Dorelly del Rosario',
+    user: 'dcrisanto',
+    email: 'dorelly.crisanto@gmail.com',
+    facebook: 'dorecharo15@hotmail.com',
+    approvedCourses: [
+        "Computación básica",
+        "Pensamiento lógico",
+        "Preword Linux",
+        "Terminal",
+        "Programación Básica",
+        "Css grid",
+        "Diseño para Programadores",
+        "Front Developer",
+        "Básico de JS",
+        "Front Developer Práctico",
+        "Git-GitHub",
+        "Html-Css",
+        "Html Práctico",
+        "Práctico Css",
+        "Introducción Web",
+        "JS closures-scope",
+        "JS Práctico",
+        "Mobile First",
+        "POO",
+    ],
+    learningPaths: [
+        webDevelopmentSchool,
+        javaScriptSchool
+    ]
+});
+
+const studentPlatzi_2 = new StudentPlatzi({
+    name: 'Roxana Paola',
+    user: 'roxi',
+    email: 'roxipaolacs@gmail.com',
+    facebook: 'roxi',
+    learningPaths: [
+        javaScriptSchool
+    ]
+});
+
+studentPlatzi_1.passedCourse('POO JS');
+studentPlatzi_2.passedCourse('POO JS');
+
+console.log(studentPlatzi_1);
+console.log(studentPlatzi_2);
+
 
 
