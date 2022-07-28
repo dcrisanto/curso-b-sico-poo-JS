@@ -309,9 +309,21 @@ class Courses {
         name, 
         lessons = []
     }){
-        this.name = name;
+        this._name = name; // Para indicar que esta propiedad no se puede acceder fuera del prototipo, es decir escondemos el atributo
         this.lessons = lessons
     }
+    get name() { // para poder acceder al atributo name
+        return `El nombre del curso es: ${this._name}`;
+    }
+
+    set name(newName) { // Para cambiar el valor del atributo que está escondido con validaciones
+        if(newName.includes('malo')){
+            console.log(`Ese cambio no es posible, no puede incluir malo`);
+        } else {
+            this._name = newName;
+        }
+    }
+
     newLessons(newClass) {
         this.lessons.push(newClass);
     }
