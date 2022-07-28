@@ -109,7 +109,7 @@ const studentClass1 = new StudentClass(
 studentClass1.passedCourse('POO JS');
 console.log(studentClass1);
 
-/* Creando Prototipos con la sintaxis de clases recibiendo cómo parámetros un objeto */
+/* Creando Prototipos con la sintaxis de clases recibiendo cómo parámetro un objeto */
 
 class StudentClassObject {
     constructor({
@@ -307,10 +307,14 @@ const ubuntu = new Lessons('Instalando Ubuntu en VirtualBox');
 class Courses {
     constructor({
         name, 
-        lessons = []
+        lessons = [],
+        isFree = false,
+        isBassic = false
     }){
         this._name = name; // Para indicar que esta propiedad no se puede acceder fuera del prototipo, es decir escondemos el atributo
-        this.lessons = lessons
+        this.lessons = lessons;
+        this.isFree = isFree;
+        this.isBassic = isBassic
     }
     get name() { // para poder acceder al atributo name
         return `El nombre del curso es: ${this._name}`;
@@ -331,6 +335,7 @@ class Courses {
 
 const basicComputing = new Courses({
     name: 'Computación básica',
+    isFree: true
 });
 
 const prewordLinux = new Courses({
@@ -338,15 +343,18 @@ const prewordLinux = new Courses({
     lessons: [
         linux,
         ubuntu
-    ]
+    ],
+    isBassic: true
 });
 
 const terminal = new Courses({
     name: 'Terminal',
+    isBassic: true
 });
 
 const basicProgramming = new Courses({
     name: 'Programación Básica',
+    isFree: true
 });
 
 class LearningPaths {
@@ -406,6 +414,47 @@ class StudentPlatzi {
     }
 }
 
+/*Herencia*/
+class FreeStudentPlatzi extends StudentPlatzi {
+    /*los parámetros del prototipo padre los recibimos en props */
+    constructor(props){
+        /*super: nos permite llamar al constructor de nuestro prototipo padre*/
+        super(props);
+    }
+     /* Creando los métodos */
+     passedCourse(newCourse) {
+        if(newCourse.isFree){
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn(`Lo siento ${this.name} este curso no pertenece a la suscripción FreeStudent`);
+        }
+    }
+}
+
+class BasicStudentPlatzi extends StudentPlatzi {
+    constructor(props){
+        super(props);
+    }
+    passedCourse(newCourse) {
+        if(newCourse.isFree || newCourse.isBassic) {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn(`Lo siento ${this.name} este curso no pertenece a la suscripción BasicStudent`);
+        }
+    }
+}
+
+class ExpertStudentPlatzi extends StudentPlatzi {
+    constructor(props){
+        super(props);
+    }
+
+    passedCourse(newCourse) {
+        this.approvedCourses.push(newCourse);
+   
+    }
+}
+
 /*creando las instancias */
 const studentPlatzi_1 = new StudentPlatzi({
     name: 'Dorelly del Rosario',
@@ -424,19 +473,20 @@ const studentPlatzi_1 = new StudentPlatzi({
     ]
 });
 
-const studentPlatzi_2 = new StudentPlatzi({
+const studentPlatzi_2 = new FreeStudentPlatzi({
     name: 'Roxana Paola',
     user: 'roxi',
     email: 'roxipaolacs@gmail.com',
     facebook: 'roxi',
     approvedCourses: [
-        prewordLinux,
         basicComputing
     ],
     learningPaths: [
         javaScriptSchool
     ]
 });
+
+studentPlatzi_2.passedCourse(prewordLinux);
 
 console.log(studentPlatzi_1);
 console.log(studentPlatzi_2);
